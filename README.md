@@ -16,7 +16,7 @@ A professional AI chat platform integrating both OpenAI and Z.ai APIs with a sle
 
 ## Live Demo
 
-🌐 **[Try Tagz AI Chat Platform](https://your-username.github.io/tagz-ai-chat/)**
+🌐 **[Try Tagz AI Chat Platform](https://tagzhost.github.io/aichat/)**
 
 ## Setup Instructions
 
