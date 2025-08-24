@@ -870,6 +870,13 @@ option:disabled {
     opacity: 0.6;
 }
 
+.setting-group input[type="password"]:not(:disabled) {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    cursor: text;
+    opacity: 1;
+}
+
 .setting-group input:focus,
 .setting-group select:focus {
     outline: none;
