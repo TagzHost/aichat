@@ -183,6 +183,38 @@ body::before {
     z-index: 10;
 }
 
+/* Style for AI avatar in chat messages */
+.message.ai {
+    display: flex;
+    gap: 12px;
+    padding: 12px 24px;
+    position: relative;
+}
+
+.message.ai .ai-avatar {
+    width: 32px;
+    height: 32px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.message.ai .ai-avatar i {
+    color: var(--text-primary) !important;
+    font-size: 16px !important;
+}
+
+/* Ensure user messages have proper spacing */
+.message.user {
+    display: flex;
+    justify-content: flex-end;
+    padding: 12px 24px;
+}
+
 /* Remove the robot emoji overlay */
 .ai-avatar::after {
     display: none;
