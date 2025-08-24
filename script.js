@@ -1,6 +1,6 @@
 class ChatPlatform {
     constructor() {
-        this.apiKey = localStorage.getItem('openai_api_key') || 'YOUR_OPENAI_API_KEY_HERE';
+        this.apiKey = localStorage.getItem('openai_api_key') || 'ZetqF9BIgVh1yQpkCPfSquXyukkb7Xsp10SEOWkzpxd1jiDzXeL56d3yBhQ_gcTpbU4Xv_FmRYT3BlbkFJWGd0yCJjhGF7dqCGlX1Z_yoIS9f3XCwYVUlfc3p4CtaDySv2B-x5aAKfgF4Da7z2WiP7O0RA0A';
         this.zaiApiKey = localStorage.getItem('zai_api_key') || '9e75a3a0a54b4a05ac5b04e61c8c6f00.kVvG5JcytuNQxr4m';
         this.aiProvider = localStorage.getItem('ai_provider') || 'openai';
         this.model = localStorage.getItem('openai_model') || 'gpt-4o-mini';
