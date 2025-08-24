@@ -162,34 +162,30 @@ body::before {
 .ai-avatar {
     width: 32px;
     height: 32px;
-    background: var(--accent-primary);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white !important;
+    color: var(--text-primary) !important;
     font-size: 16px;
     font-weight: bold;
     flex-shrink: 0;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     box-shadow: 0 2px 8px var(--shadow-color);
 }
 
 .ai-avatar i {
-    color: white !important;
+    color: var(--text-primary) !important;
     font-size: 16px !important;
     z-index: 10;
 }
 
+/* Remove the robot emoji overlay */
 .ai-avatar::after {
-    content: '🤖';
-    font-size: 16px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 5;
+    display: none;
 }
 
 .header-actions {
