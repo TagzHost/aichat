@@ -1,6 +1,6 @@
 class ChatPlatform {
     constructor() {
-        this.apiKey = localStorage.getItem('openai_api_key') || 'ZetqF9BIgVh1yQpkCPfSquXyukkb7Xsp10SEOWkzpxd1jiDzXeL56d3yBhQ_gcTpbU4Xv_FmRYT3BlbkFJWGd0yCJjhGF7dqCGlX1Z_yoIS9f3XCwYVUlfc3p4CtaDySv2B-x5aAKfgF4Da7z2WiP7O0RA0A';
+        this.apiKey = localStorage.getItem('openai_api_key') || 'YOUR_OPENAI_API_KEY_HERE';
         this.zaiApiKey = localStorage.getItem('zai_api_key') || '9e75a3a0a54b4a05ac5b04e61c8c6f00.kVvG5JcytuNQxr4m';
         this.aiProvider = localStorage.getItem('ai_provider') || 'openai';
         this.model = localStorage.getItem('openai_model') || 'gpt-4o-mini';
@@ -408,8 +408,8 @@ class ChatPlatform {
     }
 
     loadSettings() {
-        this.apiKeyInput.value = '••••••••••••••••••••••••••••••••••••••••••••••••••••';
-        this.apiKeyInput.disabled = true;
+        this.apiKeyInput.value = this.apiKey;
+        this.apiKeyInput.disabled = false;
         this.zaiApiKeyInput.value = '••••••••••••••••••••••••••••••••••••••••••••••••••••';
         this.zaiApiKeyInput.disabled = true;
         this.aiProviderSelect.value = this.aiProvider;
@@ -424,24 +424,38 @@ class ChatPlatform {
     }
 
     saveSettings() {
+        const newApiKey = this.apiKeyInput.value.trim();
         const newAiProvider = this.aiProviderSelect.value;
         const newTemperature = parseFloat(this.temperatureSlider.value);
 
         console.log('Saving settings - Selected provider:', newAiProvider); // Debug log
 
-        // Save settings to localStorage (API keys remain unchanged)
+        // Validate OpenAI API key if provider is OpenAI
+        if (newAiProvider === 'openai' && !newApiKey) {
+            alert('Please enter your OpenAI API key');
+            return;
+        }
+
+        if (newAiProvider === 'openai' && !newApiKey.startsWith('sk-')) {
+            alert('Invalid API key format. OpenAI API keys start with "sk-"');
+            return;
+        }
+
+        // Save settings to localStorage
+        localStorage.setItem('openai_api_key', newApiKey);
         localStorage.setItem('ai_provider', newAiProvider);
         localStorage.setItem('openai_temperature', newTemperature);
 
         console.log('Saved to localStorage - ai_provider:', localStorage.getItem('ai_provider')); // Debug log
 
-        // Update instance variables (API keys remain unchanged)
+        // Update instance variables
+        this.apiKey = newApiKey;
         this.aiProvider = newAiProvider;
         this.temperature = newTemperature;
 
         console.log('Updated instance variable - this.aiProvider:', this.aiProvider); // Debug log
 
-        // Reinitialize OpenAI client with existing API key
+        // Reinitialize OpenAI client with new API key
         this.initializeOpenAI();
 
         this.toggleSendButton();
@@ -562,6 +576,4 @@ document.head.appendChild(style);
 document.addEventListener('DOMContentLoaded', () => {
     window.chatPlatform = new ChatPlatform();
 });
-
-
 
