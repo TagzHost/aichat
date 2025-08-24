@@ -442,12 +442,27 @@ body::before {
     box-shadow: 0 1px 4px var(--shadow-color);
 }
 
-.message.user .message-content,
-.message.user .message-content *,
-.message.user .message-content p,
-.message.user .message-content span,
-.message.user .message-content div {
+[data-theme="dark"] .message.user .message-content,
+[data-theme="dark"] .message.user .message-content *,
+[data-theme="dark"] .message.user .message-content p,
+[data-theme="dark"] .message.user .message-content span,
+[data-theme="dark"] .message.user .message-content div {
     color: white !important;
+    background: transparent !important;
+}
+
+[data-theme="light"] .message.user .message-content {
+    background: white !important;
+    color: black !important;
+    border: 1px solid var(--accent-primary);
+}
+
+[data-theme="light"] .message.user .message-content,
+[data-theme="light"] .message.user .message-content *,
+[data-theme="light"] .message.user .message-content p,
+[data-theme="light"] .message.user .message-content span,
+[data-theme="light"] .message.user .message-content div {
+    color: black !important;
     background: transparent !important;
 }
 
