@@ -1,7 +1,8 @@
+const zai_api_keyy = process.env.zaai_api_key
 class ChatPlatform {
     constructor() {
         this.apiKey = localStorage.getItem('openai_api_key') || 'YOUR_OPENAI_API_KEY_HERE';
-        this.zaiApiKey = localStorage.getItem('zai_api_key') || '9e75a3a0a54b4a05ac5b04e61c8c6f00.kVvG5JcytuNQxr4m';
+        this.zaiApiKey = localStorage.getItem('zai_api_key') || 'zai_api_keyy';
         this.aiProvider = localStorage.getItem('ai_provider') || 'openai';
         this.model = localStorage.getItem('openai_model') || 'gpt-4o-mini';
         this.temperature = parseFloat(localStorage.getItem('openai_temperature')) || 0.7;
